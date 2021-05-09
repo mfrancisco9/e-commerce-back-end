@@ -58,7 +58,16 @@ Tag.update(
 });
 
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  // Looks for the books based on isbn given in the request parameters and deletes the instance from the database
+  Tag.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((deletedTag) => {
+      res.json(deletedTag);
+    })
+    .catch((err) => res.json(err));
 });
 
 module.exports = router;

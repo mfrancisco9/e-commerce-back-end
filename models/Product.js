@@ -37,6 +37,7 @@ Product.init(
       referennces: {
         model: 'category',
         key: 'id',
+        unique: false,
       }
 
     }

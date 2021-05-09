@@ -48,9 +48,13 @@ Tag.update(
   {
   where: {
     id: req.params.id,
-  }
+  },
   }
 )
+.then((updatedTag) => {
+  res.json(updatedTag);
+})
+.catch((err) => res.json(err));
 });
 
 router.delete('/:id', (req, res) => {
